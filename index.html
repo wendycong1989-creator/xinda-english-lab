@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#0f5f4b">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="GeoSpeak">
@@ -20,7 +21,16 @@ main{max-width:860px;margin:auto;padding:18px 14px 100px}.progress{background:wh
 .grid{display:grid;gap:12px}.lesson{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:left;box-shadow:0 8px 24px rgba(15,95,75,.07);cursor:pointer}
 .lesson h3{margin:0;font-size:20px}.lesson p{margin:5px 0 0;color:var(--muted)}.done{border-color:#75b9a2}.tag{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--g);background:#eaf5f1;padding:5px 8px;border-radius:99px}
 .hidden{display:none}.topbar{display:flex;align-items:center;gap:10px;margin-bottom:14px}button,select{font:inherit}button{border:0;border-radius:13px;padding:11px 13px;font-weight:750;cursor:pointer}.back{background:white;border:1px solid var(--line)}.playall{background:var(--g);color:white;margin-left:auto}.controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}select{width:100%;padding:11px;border:1px solid var(--line);border-radius:13px;background:white;color:var(--text)}
-.card{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px}.card.active{border-color:#6eb197;box-shadow:0 8px 22px rgba(15,95,75,.12)}.en{font-size:22px;font-weight:760;line-height:1.45;margin:0}.zh{border-top:1px dashed var(--line);padding-top:12px;margin:12px 0 0;color:#455952}.actions{display:flex;gap:8px;margin-top:14px}.speak{background:#eaf5f1;color:var(--g)}.mark{background:#f2f5f4;color:#52645e}.marked{background:var(--g);color:white}.note{font-size:13px;color:var(--muted);margin:10px 0}.footerbar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));backdrop-filter:blur(15px)}.footerbar .wrap{display:flex;gap:8px}.footerbar button{flex:1}.stop{background:#fff0ed;color:#8b493f}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px}.card.active{border-color:#6eb197;box-shadow:0 8px 22px rgba(15,95,75,.12)}.en{font-size:22px;font-weight:760;line-height:1.45;margin:0}.zh{border-top:1px dashed var(--line);padding-top:12px;margin:12px 0 0;color:#455952}.actions{display:flex;gap:8px;margin-top:14px}.speak{background:#eaf5f1;color:var(--g)}.mark{background:#f2f5f4;color:#52645e}.marked{background:var(--g);color:white}.note{font-size:13px;color:var(--muted);margin:10px 0}
+.vocab{background:#eef7f3;border:1px solid #d4e8e0;border-radius:18px;padding:16px;margin:0 0 14px}
+.vocab h3{margin:0 0 10px;font-size:18px}
+.word{background:white;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:8px}
+.word-head{display:flex;align-items:center;gap:8px}
+.word-en{font-size:17px;font-weight:800;color:var(--g)}
+.word-zh{font-size:15px;font-weight:700}
+.word p{margin:6px 0 0;font-size:14px;color:#52645e;line-height:1.55}
+.word button{margin-left:auto;background:#eaf5f1;color:var(--g);padding:7px 10px}
+.install-note{background:#fff7e9;border:1px solid #f0dfb7;border-radius:16px;padding:13px 15px;margin-bottom:14px;font-size:14px;color:#6e5732}.footerbar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));backdrop-filter:blur(15px)}.footerbar .wrap{display:flex;gap:8px}.footerbar button{flex:1}.stop{background:#fff0ed;color:#8b493f}
 @media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -28,7 +38,8 @@ main{max-width:860px;margin:auto;padding:18px 14px 100px}.progress{background:wh
 <header><div class="wrap"><div class="brand">XINDA · GEOENGLISH</div><h1>Xinda GeoSpeak</h1><p class="sub">Geosynthetics English for buyers and engineers</p></div></header>
 <main>
 <section id="home">
-  <div class="progress"><strong id="progressText">0 / 6 lessons completed</strong><div class="bar" style="margin-top:10px"><div class="fill" id="fill"></div></div></div>
+  <div class="install-note">在 iPhone 上安装：请用 Safari 打开本页，点击“分享”→“添加到主屏幕”。iOS 不会自动弹出安装按钮。</div>
+<div class="progress"><strong id="progressText">0 / 6 lessons completed</strong><div class="bar" style="margin-top:10px"><div class="fill" id="fill"></div></div></div>
   <div class="grid" id="lessonGrid"></div>
 </section>
 <section id="lessonView" class="hidden">
@@ -38,27 +49,62 @@ main{max-width:860px;margin:auto;padding:18px 14px 100px}.progress{background:wh
     <select id="rate"><option value=".72">慢速 0.72</option><option value=".86" selected>跟读 0.86</option><option value="1">自然 1.0</option></select>
     <select id="mode"><option value="natural">自然意群</option><option value="smooth">连贯朗读</option></select>
   </div>
+  <section class="vocab" id="vocabBox"><h3>重点单词与工程术语</h3><div id="vocabList"></div></section>
   <div id="cards"></div>
 </section>
 </main>
 <div class="footerbar hidden" id="footerbar"><div class="wrap"><button class="speak" id="practice">跟读模式</button><button class="stop" id="stop">停止</button></div></div>
 <script>
 const lessons=[{"title":"Company Introduction","zh":"公司介绍","sentences":[["Hi, I’m Wendy from Xinda. I’m the General Manager of Nanyang Xinda Environmental Protection Technology Co., Ltd.","你好，我是来自信达公司的 Wendy。我是南阳信达环保科技有限公司的总经理。"],["We help engineers and contractors solve seepage, reinforcement, drainage, and containment challenges with reliable geosynthetic solutions.","我们通过可靠的土工合成材料解决方案，帮助工程师和承包商解决防渗、加固、排水及围隔等工程难题。"],["We are a manufacturer of geosynthetic materials based in China.","我们是一家位于中国的土工合成材料制造商。"],["Our main products include geomembranes, geotextiles, geogrids, geocells, GCLs, and drainage products.","我们的主要产品包括土工膜、土工布、土工格栅、土工格室、膨润土防水毯及排水产品。"],["We don’t just supply materials. We help customers find the right solution for each project.","我们不仅供应材料，也帮助客户为每个项目找到合适的解决方案。"]]},{"title":"Continuous Filament Geotextile","zh":"长丝土工布","sentences":[["Continuous filament geotextile is a strong, durable nonwoven material used for filtration, separation, drainage, protection, and reinforcement.","长丝土工布是一种强度高、耐久性好的非织造材料，可用于过滤、隔离、排水、保护和加筋。"],["In landfill and reservoir projects, it is often used to protect geomembranes from puncture and construction damage.","在垃圾填埋场和水库工程中，它常用于保护土工膜，减少穿刺和施工损伤。"],["In roads and railways, it separates soil from aggregate and helps maintain structural stability.","在公路和铁路工程中，它可以隔离土体与集料，并帮助保持结构稳定。"],["Before recommending a product, we need to know the application, required strength, weight, width, and design standard.","推荐产品前，我们需要了解应用场景、强度要求、克重、幅宽和设计标准。"]]},{"title":"Staple Fiber Geotextile","zh":"短丝土工布","sentences":[["Staple fiber geotextile is a flexible nonwoven material widely used for filtration, separation, drainage, and protection.","短丝土工布是一种柔软的非织造材料，广泛用于过滤、隔离、排水和保护。"],["It conforms well to uneven surfaces and is commonly used around ponds, drainage trenches, roads, and general waterproofing works.","它能较好贴合不平整基面，常用于鱼塘、排水沟、道路和一般防水工程。"],["Around drainage pipes, it allows water to pass while helping prevent soil particles from entering the drainage layer.","在排水管周围，它允许水通过，同时帮助阻止土颗粒进入排水层。"],["The right specification depends on soil conditions, loading, filtration requirements, and installation conditions.","合适的规格取决于土质、荷载、过滤要求和施工条件。"]]},{"title":"Geogrids","zh":"土工格栅","sentences":[["Geogrids reinforce soil, distribute loads, limit lateral movement, and reduce deformation and settlement.","土工格栅能够加筋土体、分散荷载、限制侧向位移，并减少变形和沉降。"],["Uniaxial geogrids are mainly used in retaining walls, steep slopes, and reinforced soil structures.","单向土工格栅主要用于挡土墙、陡坡和加筋土结构。"],["Biaxial geogrids are commonly used for road bases, soft ground improvement, and load distribution.","双向土工格栅常用于道路基层、软基处理和荷载分散。"],["Fiberglass geogrids are mainly used to control reflective cracking in asphalt pavements.","玻纤土工格栅主要用于控制沥青路面的反射裂缝。"],["Steel-plastic geogrids are used in heavy-duty reinforcement projects where high tensile strength is required.","钢塑土工格栅用于对抗拉强度要求较高的重载加筋工程。"]]},{"title":"Geomembranes","zh":"防渗膜","sentences":[["Geomembranes form a continuous low-permeability barrier to control the movement of water, wastewater, leachate, and other liquids.","土工膜形成连续的低渗透屏障，用于控制水、污水、渗滤液及其他液体的迁移。"],["HDPE geomembrane is widely used in landfills, mining, wastewater treatment, reservoirs, and industrial containment.","HDPE 土工膜广泛用于垃圾填埋场、矿山、污水处理、水库和工业围隔工程。"],["LDPE geomembrane is more flexible and may be suitable for projects with more complex shapes or deformation requirements.","LDPE 土工膜柔韧性更好，可能更适合形状复杂或存在变形要求的工程。"],["Composite geomembrane combines a geomembrane with geotextile to provide both seepage control and protection.","复合土工膜将土工膜与土工布结合，同时提供防渗和保护作用。"],["We never recommend thickness based on price alone. Site conditions, loading, exposure, and design requirements must be considered.","我们不会只根据价格推荐厚度，还必须考虑现场条件、荷载、暴露环境和设计要求。"]]},{"title":"Geosynthetic Clay Liner","zh":"膨润土防水毯","sentences":[["A geosynthetic clay liner, or GCL, contains bentonite clay between geotextile layers.","膨润土防水毯，也叫 GCL，是将膨润土夹在土工布层之间形成的材料。"],["When properly hydrated and confined, the bentonite forms a low-permeability barrier.","在充分水化并受到有效约束时，膨润土会形成低渗透屏障。"],["GCLs are used in landfill liners, final covers, ponds, canals, wastewater projects, and composite containment systems.","GCL 可用于填埋场衬垫、封场覆盖、池塘、渠道、污水工程和复合围隔系统。"],["Performance depends on water chemistry, confinement, overlap details, subgrade conditions, and correct installation.","其性能取决于水质、约束条件、搭接节点、基层条件和正确施工。"],["We should never describe GCL as a universal self-sealing solution without checking the project conditions.","在未核实工程条件前，不能把 GCL 描述成适用于所有情况的自动密封材料。"]]}];
-let current=-1,stopped=false;
-const grid=document.getElementById('lessonGrid'),home=document.getElementById('home'),view=document.getElementById('lessonView'),cards=document.getElementById('cards');
+
+const vocabulary=[
+[["General Manager","总经理","负责公司整体经营、团队和业务管理。"],["engineer","工程师","在工程语境中，通常指设计、技术或现场工程人员。"],["contractor","承包商","负责组织或实施工程施工的公司或个人。"],["seepage","渗漏；渗流","强调水或液体通过土体、结构或防渗系统发生迁移。"],["reinforcement","加筋；增强","通过材料提升土体或结构的承载与稳定性能。"],["drainage","排水","将水或液体有组织地导出结构或场地。"],["containment","围隔；封闭控制","工程上指限制液体、污染物或废弃物向外迁移。"],["geosynthetic","土工合成材料","用于岩土、环境和水利工程的聚合物材料总称。"]],
+[["continuous filament","连续长丝","由连续纤维形成，与短纤维结构不同。"],["nonwoven","非织造的","不是通过传统经纬纱织造，而是通过针刺等方式成网。"],["filtration","过滤；反滤","允许水通过，同时减少土颗粒流失或进入排水层。"],["separation","隔离","防止两种不同粒径或性质的材料相互混合。"],["puncture","穿刺","尖锐物体刺穿材料造成的局部破坏。"],["aggregate","集料；骨料","道路和土建工程中的碎石、砂砾等粒状材料。"]],
+[["staple fiber","短纤维","长度有限的纤维，是短丝土工布的主要原料形式。"],["flexible","柔韧的","能够较好贴合不规则或起伏的基面。"],["conform to","贴合；顺应","表示材料能够适应表面形状。"],["drainage trench","排水沟；盲沟","用于收集并导排水体的沟槽结构。"],["soil particle","土颗粒","构成土体的固体颗粒。"],["specification","规格；技术要求","可包括克重、强度、幅宽、厚度和标准等。"]],
+[["reinforce","加筋；增强","提高土体或结构的承载能力和稳定性。"],["distribute loads","分散荷载","把集中作用力扩散到更大的范围。"],["lateral movement","侧向位移","土体或结构向侧面的移动。"],["settlement","沉降","地基或结构在荷载作用下发生的竖向位移。"],["uniaxial","单向的","主要在一个方向提供高抗拉强度。"],["biaxial","双向的","在两个主要方向提供加筋作用。"],["reflective cracking","反射裂缝","基层或旧路裂缝向新铺面层反射形成的裂缝。"],["tensile strength","抗拉强度","材料抵抗拉伸破坏的能力。"]],
+[["low-permeability barrier","低渗透屏障","用于限制液体通过或迁移的连续防渗层。"],["leachate","渗滤液","垃圾或固体废弃物与水接触后形成的污染液体。"],["industrial containment","工业围隔","用于控制工业液体或污染物泄漏与扩散的系统。"],["flexible","柔韧的","表示材料更容易适应复杂形状或变形。"],["composite geomembrane","复合土工膜","通常由土工膜与一层或两层土工布复合而成。"],["exposure","暴露条件","材料暴露于阳光、风、温度和化学介质等环境的状态。"]],
+[["GCL","膨润土防水毯","Geosynthetic Clay Liner 的缩写。"],["bentonite","膨润土","遇水吸胀并形成低渗透层的黏土矿物材料。"],["hydrate","水化","材料吸收水分并发生性能变化的过程。"],["confined","受到约束的","GCL需要适当压力或覆盖层约束膨润土膨胀。"],["overlap","搭接","相邻材料边缘重叠形成连续系统的做法。"],["subgrade","基层；地基表面","铺设土工材料之前的基础土层或施工基面。"],["self-sealing","自密封的","指膨润土在适当条件下对小孔隙具有一定封闭能力，但不是无条件适用。"]]
+];
+
+let current=-1, stopped=false;
+const grid=document.getElementById('lessonGrid'),home=document.getElementById('home'),view=document.getElementById('lessonView'),cards=document.getElementById('cards'),vocabList=document.getElementById('vocabList');
 function saved(){return JSON.parse(localStorage.getItem('xinda-progress')||'{}')}
 function save(v){localStorage.setItem('xinda-progress',JSON.stringify(v));renderProgress()}
 function renderHome(){grid.innerHTML='';lessons.forEach((l,i)=>{const b=document.createElement('button');b.className='lesson '+(saved()[i]?.complete?'done':'');b.innerHTML=`<h3>${l.title}</h3><p>${l.zh}</p><span class="tag">${saved()[i]?.complete?'已完成':'开始学习'}</span>`;b.onclick=()=>openLesson(i);grid.appendChild(b)});renderProgress()}
 function renderProgress(){const n=lessons.filter((_,i)=>saved()[i]?.complete).length;document.getElementById('progressText').textContent=`${n} / ${lessons.length} lessons completed`;document.getElementById('fill').style.width=(n/lessons.length*100)+'%'}
-function openLesson(i){current=i;home.classList.add('hidden');view.classList.remove('hidden');document.getElementById('footerbar').classList.remove('hidden');document.getElementById('lessonTitle').textContent=lessons[i].title;document.getElementById('lessonZh').textContent=lessons[i].zh;cards.innerHTML='';lessons[i].sentences.forEach((s,j)=>{const c=document.createElement('article');c.className='card';c.innerHTML=`<p class="en">${s[0]}</p><p class="zh">${s[1]}</p><div class="actions"><button class="speak">▶ 播放</button><button class="mark">${saved()[i]?.sentences?.includes(j)?'✓ 已掌握':'标记掌握'}</button></div>`;c.querySelector('.speak').onclick=()=>speak(s[0],c);c.querySelector('.mark').onclick=e=>toggleMark(i,j,e.target);cards.appendChild(c)})}
+function openLesson(i){
+  current=i;
+  home.classList.add('hidden');
+  view.classList.remove('hidden');
+  document.getElementById('footerbar').classList.remove('hidden');
+  document.getElementById('lessonTitle').textContent=lessons[i].title;
+  document.getElementById('lessonZh').textContent=lessons[i].zh;
+  vocabList.innerHTML='';
+  vocabulary[i].forEach(w=>{
+    const d=document.createElement('div');
+    d.className='word';
+    d.innerHTML=`<div class="word-head"><span class="word-en">${w[0]}</span><span class="word-zh">${w[1]}</span><button>▶ 发音</button></div><p>${w[2]}</p>`;
+    d.querySelector('button').onclick=()=>speak(w[0],d);
+    vocabList.appendChild(d);
+  });
+  cards.innerHTML='';
+  lessons[i].sentences.forEach((s,j)=>{
+    const c=document.createElement('article');
+    c.className='card';
+    c.innerHTML=`<p class="en">${s[0]}</p><p class="zh">${s[1]}</p><div class="actions"><button class="speak">▶ 播放</button><button class="mark">${saved()[i]?.sentences?.includes(j)?'✓ 已掌握':'标记掌握'}</button></div>`;
+    c.querySelector('.speak').onclick=()=>speak(s[0],c);
+    c.querySelector('.mark').onclick=(e)=>toggleMark(i,j,e.target);
+    cards.appendChild(c);
+  });
+}
 function toggleMark(i,j,btn){const p=saved();p[i]??={sentences:[],complete:false};const a=p[i].sentences||[];const k=a.indexOf(j);k>=0?a.splice(k,1):a.push(j);p[i].sentences=a;p[i].complete=a.length===lessons[i].sentences.length;save(p);btn.textContent=k>=0?'标记掌握':'✓ 已掌握';btn.classList.toggle('marked',k<0)}
-function chunks(text){if(document.getElementById('mode').value==='smooth')return[text];return text.split(/(?<=[,.;:])\s+/).filter(Boolean)}
-function say(text,card){return new Promise(res=>{const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=parseFloat(document.getElementById('rate').value);u.pitch=1.02;u.onstart=()=>{document.querySelectorAll('.card').forEach(x=>x.classList.remove('active'));card?.classList.add('active')};u.onend=res;u.onerror=res;speechSynthesis.speak(u)})}
+function chunks(text){if(document.getElementById('mode').value==='smooth')return [text];return text.split(/(?<=[,.;:])\s+/).filter(Boolean)}
+function say(text,card){return new Promise(res=>{const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=parseFloat(document.getElementById('rate').value);u.pitch=1.02;u.onstart=()=>{document.querySelectorAll('.card,.word').forEach(x=>x.classList.remove('active'));card?.classList.add('active')};u.onend=res;u.onerror=res;speechSynthesis.speak(u)})}
 async function speak(text,card){stopAll();stopped=false;for(const part of chunks(text)){if(stopped)break;await say(part,card);await new Promise(r=>setTimeout(r,220))}}
 async function playAll(){stopAll();stopped=false;const cs=[...document.querySelectorAll('.card')];for(let i=0;i<lessons[current].sentences.length;i++){if(stopped)break;await speak(lessons[current].sentences[i][0],cs[i]);await new Promise(r=>setTimeout(r,350))}}
 async function practice(){stopAll();stopped=false;const cs=[...document.querySelectorAll('.card')];for(let i=0;i<lessons[current].sentences.length;i++){if(stopped)break;await speak(lessons[current].sentences[i][0],cs[i]);await new Promise(r=>setTimeout(r,3500));if(stopped)break;await speak(lessons[current].sentences[i][0],cs[i]);await new Promise(r=>setTimeout(r,400))}}
-function stopAll(){stopped=true;speechSynthesis.cancel();document.querySelectorAll('.card').forEach(x=>x.classList.remove('active'))}
-document.getElementById('back').onclick=()=>{stopAll();view.classList.add('hidden');home.classList.remove('hidden');document.getElementById('footerbar').classList.add('hidden');renderHome()};
+function stopAll(){stopped=true;speechSynthesis.cancel();document.querySelectorAll('.card,.word').forEach(x=>x.classList.remove('active'))}
+document.getElementById('back').onclick=()=>{stopAll();view.classList.add('hidden');home.classList.remove('hidden');document.getElementById('footerbar').classList.add('hidden');renderHome()}
 document.getElementById('playAll').onclick=playAll;document.getElementById('practice').onclick=practice;document.getElementById('stop').onclick=stopAll;
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');
 renderHome();
