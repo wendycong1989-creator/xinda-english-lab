@@ -1,0 +1,17 @@
+{
+  "name": "Xinda GeoSpeak",
+  "short_name": "GeoSpeak",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5faf8",
+  "theme_color": "#0f5f4b",
+  "description": "Geosynthetics English practice for buyers and engineers.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
