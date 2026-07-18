@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xinda Engineering Explorer - Landfill System</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5faf8;color:#18352d;margin:0;padding:20px}.box{background:white;border-radius:20px;padding:20px;margin-bottom:16px}h1{color:#0f5f4b}.layer{padding:14px;border:1px solid #dce9e4;border-radius:12px;margin:8px 0;cursor:pointer}.layer:hover{background:#eaf5f1}.detail{display:none;padding:14px;background:#eef7f3;border-radius:12px}
+</style></head>
+<body>
+<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Explore how geosynthetic materials protect the environment.</p></div>
+<div class="box"><h2>Engineering Challenge</h2><p>Rainfall + waste decomposition → leachate → groundwater risk.</p><p>A landfill is not just a waste storage area. It is an engineered containment system.</p></div>
+<div class="box"><h2>System Layers</h2>
+<div class="layer" onclick="show('HDPE Geomembrane: Primary barrier against liquid migration. Low permeability, chemical resistance, reliable welding.')">HDPE Geomembrane</div>
+<div class="layer" onclick="show('Protection Geotextile: Protects geomembrane from puncture and construction damage.')">Protection Geotextile</div>
+<div class="layer" onclick="show('GCL: Bentonite based mineral barrier used as part of composite containment systems.')">GCL</div>
+<div class="detail" id="d"></div></div>
+<div class="box"><h2>Xinda</h2><p>We don't just supply materials. We help build reliable environmental systems.</p></div>
+<script>function show(t){let d=document.getElementById('d');d.innerText=t;d.style.display='block'}</script>
+</body></html>
