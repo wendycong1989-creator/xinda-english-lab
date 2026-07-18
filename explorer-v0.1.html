@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xinda Engineering Explorer V0.6</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xinda Engineering Explorer V0.7</title>
 <style>
-body{font-family:Arial,sans-serif;background:#edf6f2;color:#17352c;margin:0;padding:16px}.box{background:#fff;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 4px 18px #0001}h1,h2{color:#075f4a}.profile{background:linear-gradient(#bfe8ff 0 35%,#83c96e 35% 55%,#8b5a35 55%);height:280px;border-radius:18px;position:relative;overflow:hidden}.groundwater{position:absolute;bottom:20px;color:#1b6ca8}.leachate{position:absolute;top:160px;left:45%;color:#b33;animation:move 3s infinite}@keyframes move{from{transform:translateX(0)}to{transform:translateX(50px)}}.layer{padding:12px;margin:8px 0;background:#e9f5f0;border-radius:12px;cursor:pointer}.active{background:#b5e5d2!important;border:2px solid #075f4a}.compare{display:flex;gap:10px}.card{flex:1;padding:12px;border-radius:12px;background:#f7fbf9}.detail{padding:15px;background:#f1faf6;border-radius:12px}
+body{font-family:Arial,sans-serif;background:#edf6f2;color:#17352c;margin:0;padding:16px}.box{background:#fff;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 4px 18px #0001}h1,h2{color:#075f4a}.profile{height:330px;background:linear-gradient(#bfe8ff 0 32%,#83c96e 32% 48%,#8b5a35 48%);border-radius:18px;position:relative;overflow:hidden}.water{position:absolute;bottom:25px;color:#1670aa}.pollution{position:absolute;top:150px;left:45%;color:#b33;animation:flow 3s infinite}@keyframes flow{from{transform:translateY(0)}to{transform:translateY(45px)}}.layer{padding:12px;margin:8px 0;background:#e9f5f0;border-radius:12px;cursor:pointer}.active{background:#b5e5d2!important;border:2px solid #075f4a}.detail{padding:15px;background:#f1faf6;border-radius:12px}.section{line-height:1.8}.tag{display:inline-block;background:#dff3ea;padding:5px 10px;border-radius:15px;margin:3px}
 </style>
 </head>
 <body>
-<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Explore how engineering systems protect the environment.</p></div>
-<div class="box"><h2>Engineering Scenario</h2><div class="profile"><div class="leachate">Leachate ↓</div><div class="groundwater">Groundwater</div></div><p>Rainfall and waste decomposition can create contaminated liquid. A reliable containment system prevents pollution migration.</p></div>
-<div class="box"><h2>Without vs With Containment</h2><div class="compare"><div class="card"><b>Without System</b><br>Leachate migration<br>Soil contamination<br>Groundwater risk</div><div class="card"><b>With System</b><br>Barrier protection<br>Drainage collection<br>Environmental safety</div></div></div>
-<div class="box"><h2>Explore The System Layers</h2><p>Every layer has a purpose.</p><div class="layer" onclick="show(this,'Drainage Layer','Collect and remove leachate safely.')">Drainage Layer</div><div class="layer" onclick="show(this,'Protection Geotextile','Protect geomembrane from damage.')">Protection Geotextile</div><div class="layer" onclick="show(this,'HDPE Geomembrane','Primary barrier against liquid migration. Low permeability and chemical resistance.')">HDPE Geomembrane</div><div class="layer" onclick="show(this,'GCL','Bentonite mineral barrier providing additional containment.')">GCL</div><div class="layer" onclick="show(this,'Compacted Clay','Natural low permeability barrier.')">Compacted Clay</div><div id="detail" class="detail">Click a layer to explore.</div></div>
-<div class="box"><h2>Why Layer By Layer?</h2><p>A reliable environmental system is not built by one material. Each layer solves a different engineering risk.</p><p>可靠系统不是依靠一种材料，而是多层协同保护。</p></div>
+<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Discover how modern engineering systems protect the environment.</p><p>探索现代工程系统如何保护环境。</p></div>
+<div class="box"><h2>Engineering Profile</h2><div class="profile"><div class="pollution">Leachate ↓</div><div class="water">Groundwater</div></div><p>Waste decomposition and rainfall may create contaminated liquid. The containment system controls environmental risks.</p></div>
+<div class="box"><h2>Explore System Layers</h2><p>Every layer has a purpose. 每一层都有它存在的意义。</p>
+<div class="layer" onclick="show(this,'Cover Soil','Purpose: Reduce rainfall infiltration and protect the landfill surface.')">Cover Soil</div>
+<div class="layer" onclick="show(this,'Drainage Layer','Purpose: Collect and remove leachate safely.')">Drainage Layer</div>
+<div class="layer" onclick="show(this,'Protection Geotextile','Purpose: Protect geomembrane from puncture and construction damage.')">Protection Geotextile</div>
+<div class="layer" onclick="show(this,'HDPE Geomembrane','Purpose: Primary barrier against liquid migration.<br>Key: Low permeability, chemical resistance, welding quality.<br>Applications: Landfill, Mining, Reservoir, Wastewater, Aquaculture.')">HDPE Geomembrane</div>
+<div class="layer" onclick="show(this,'GCL','Purpose: Bentonite mineral barrier providing additional containment.')">GCL</div>
+<div class="layer" onclick="show(this,'Compacted Clay','Purpose: Natural low permeability foundation barrier.')">Compacted Clay</div>
+<div id="detail" class="detail">Click a layer to explore.</div></div>
+<div class="box"><h2>Engineering Logic</h2><div class="section"><span class="tag">Barrier</span><span class="tag">Protection</span><span class="tag">Drainage</span><span class="tag">Containment</span><p>A reliable system is built layer by layer.</p><p>可靠系统由每一层共同构成。</p></div></div>
 <div class="box"><h2>Why Xinda?</h2><p>Reliable materials. Stable manufacturing. Practical engineering support.</p><p>我们不仅供应材料，更帮助客户建立可靠的环保工程系统。</p></div>
 <script>function show(el,t,c){document.querySelectorAll('.layer').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('detail').innerHTML='<h3>'+t+'</h3><p>'+c+'</p>'}</script>
 </body></html>
