@@ -1,28 +1,185 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xinda Engineering Explorer V1.2</title>
-<style>
-body{font-family:Arial,sans-serif;background:#081b24;color:#eaf7f2;margin:0;padding:16px}.box{background:#102d38;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 8px 30px #0004}h1,h2,h3{color:#66d6a8}.hero{text-align:center;padding:35px}.btn{background:#2bb673;color:white;border:0;border-radius:30px;padding:14px 28px;font-size:18px}.section{display:flex;flex-direction:column;gap:8px}.layer{padding:14px;background:#183d4a;border-radius:10px;border-left:4px solid #477}.layer:hover,.active{background:#1f8060!important;border-left-color:#9affd1}.detail{background:#07151c;padding:15px;border-radius:12px}.risk{color:#ff9d8d;animation:risk 2s infinite alternate}@keyframes risk{to{transform:translateY(25px)}}.good{color:#80e8b4}.bad{color:#ff8c8c}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Xinda geomembrane, geotextile, GCL, reinforcement and drainage systems for landfill, mining, water and infrastructure projects.">
+  <meta name="theme-color" content="#07110f">
+  <title>Xinda Engineering Explorer V2.0 | Geosynthetic Systems</title>
+  <link rel="stylesheet" href="explorer-v2.css">
 </head>
 <body>
-<div class="box hero"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Every project has a risk.<br>Every layer has a purpose.</p><p>每个工程都有风险，每一层都有意义。</p><button class="btn">Explore System</button></div>
-<div class="box"><h2>Engineering Risk</h2><p>Rainfall ↓ Waste decomposition ↓ <span class="risk">Leachate</span> ↓ Groundwater risk</p><p>Reliable containment systems prevent pollution migration.</p></div>
-<div class="box"><h2>Interactive Cross Section</h2><p>Click each layer to understand its engineering purpose.</p>
-<div class="section">
-<div class="layer" onclick="show(this,'Cover Soil','Reduces rainfall infiltration and protects the surface layer.')">🌱 Cover Soil</div>
-<div class="layer" onclick="show(this,'Drainage Layer','Collects and removes leachate safely.')">💧 Drainage Layer</div>
-<div class="layer" onclick="show(this,'Protection Geotextile','Protects the geomembrane from puncture and construction damage.')">🛡 Protection Geotextile</div>
-<div class="layer" onclick="show(this,'HDPE Geomembrane','Primary barrier against liquid migration. Low permeability and chemical resistance.')">⬛ HDPE Geomembrane</div>
-<div class="layer" onclick="show(this,'GCL','Bentonite mineral barrier providing additional containment.')">GCL</div>
-<div class="layer" onclick="show(this,'Compacted Clay','Natural low permeability barrier.')">Clay Layer</div>
-</div>
-<div id="detail" class="detail">Select a layer.</div></div>
-<div class="box"><h2>Without vs With Containment</h2><p class="bad">❌ Without System: Leachate → Soil → Groundwater</p><p class="good">✅ Xinda System: Barrier → Drainage → Environmental Protection</p></div>
-<div class="box"><h2>Why Xinda?</h2><p>We don't just supply materials.<br>We help build reliable environmental systems.</p><p>我们不仅供应材料，更帮助客户建立可靠的环保工程系统。</p></div>
-<script>function show(e,t,c){document.querySelectorAll('.layer').forEach(x=>x.classList.remove('active'));e.classList.add('active');document.getElementById('detail').innerHTML='<h3>'+t+'</h3><p>'+c+'</p>'}</script>
+<main>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Xinda Engineering Explorer home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-copy"><strong>XINDA</strong><small>ENGINEERING SYSTEMS</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav aria-label="Primary navigation">
+      <a href="#applications">Applications</a>
+      <a href="#explorer">System explorer</a>
+      <a href="#products">Products</a>
+      <a href="#capability">Capability</a>
+    </nav>
+    <a class="header-cta" href="#contact">Start a project <span aria-hidden="true">→</span></a>
+  </header>
+
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <img class="hero-image" src="assets/explorer-v2/hero-landfill.webp" alt="Engineered HDPE geomembrane containment project at sunrise">
+    <div class="hero-shade"></div><div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-content wrap">
+      <p class="eyebrow light"><span></span> International engineering digital showroom</p>
+      <h1 id="hero-title">Engineering confidence.<br><em>Layer by layer.</em></h1>
+      <p class="hero-lead">Explore how geomembranes, geotextiles and engineered barriers work together to protect land, water and long-term project value.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#explorer">Explore the system <span aria-hidden="true">→</span></a>
+        <a class="text-link light" href="#applications">View applications <span>↘</span></a>
+      </div>
+    </div>
+    <div class="hero-meta wrap">
+      <p><span>01</span> Nanyang, China</p><p><span>02</span> Materials + system support</p><p><span>03</span> Built for global projects</p>
+    </div>
+  </section>
+
+  <section class="proof-strip" aria-label="Production capability highlights">
+    <div class="proof-intro"><span class="pulse"></span><p>Production capability<br><strong>ready for project scale</strong></p></div>
+    <div class="proof-stat"><strong>6<span>m</span></strong><p>Maximum geomembrane width</p></div>
+    <div class="proof-stat"><strong>50<span>t</span></strong><p>Daily geomembrane output</p></div>
+    <div class="proof-stat"><strong>4<span>m</span></strong><p>EVA waterproof sheet line</p></div>
+    <div class="proof-stat"><strong>15<span>+</span></strong><p>Years in geosynthetics</p></div>
+  </section>
+
+  <section class="section applications-section" id="applications">
+    <div class="wrap">
+      <div class="section-heading split-heading">
+        <div><p class="eyebrow"><span></span> Start with the application</p><h2>Every site has a different<br><em>failure to prevent.</em></h2></div>
+        <p>We help project teams move from a product list to a coordinated containment system—one that reflects the liquid, substrate, geometry and construction reality on site.</p>
+      </div>
+      <div class="application-grid">
+        <article class="application-card">
+          <img src="assets/explorer-v2/hero-landfill.webp" alt="Landfill containment"><div class="card-wash"></div>
+          <div class="card-top"><span>01</span><small>Environmental</small></div>
+          <div class="card-bottom"><h3>Landfill containment</h3><p>Barrier, drainage and protection systems engineered around leachate risk.</p><span class="round-arrow" aria-hidden="true">→</span></div>
+        </article>
+        <article class="application-card">
+          <img src="assets/explorer-v2/tailings-containment.webp" alt="Mining and tailings containment"><div class="card-wash"></div>
+          <div class="card-top"><span>02</span><small>Industrial</small></div>
+          <div class="card-bottom"><h3>Mining &amp; tailings</h3><p>Durable lining systems for chemically demanding, large-scale facilities.</p><span class="round-arrow" aria-hidden="true">→</span></div>
+        </article>
+        <article class="application-card">
+          <img src="assets/explorer-v2/water-containment.webp" alt="Water and aquaculture containment"><div class="card-wash"></div>
+          <div class="card-top"><span>03</span><small>Water systems</small></div>
+          <div class="card-bottom"><h3>Water &amp; aquaculture</h3><p>Efficient water retention for reservoirs, ponds and modern aquaculture.</p><span class="round-arrow" aria-hidden="true">→</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section explorer-section" id="explorer">
+    <div class="wrap explorer-wrap">
+      <div class="section-heading explorer-heading">
+        <p class="eyebrow light"><span></span> Interactive system explorer</p>
+        <h2>See what each layer<br><em>is working to protect.</em></h2>
+        <p>Select a layer to examine its engineering purpose. Then switch the system off to see why isolated products are never enough.</p>
+      </div>
+      <div class="system-stage">
+        <div class="cross-section is-protected">
+          <div class="stage-toolbar">
+            <div><span class="status-dot"></span><strong class="system-status">SYSTEM ACTIVE</strong></div>
+            <button type="button" class="mode-switch" aria-label="Toggle containment system comparison">
+              <span class="active">Protected</span><span>Exposed</span>
+            </button>
+          </div>
+          <div class="section-scene" aria-label="Interactive landfill containment cross section">
+            <div class="waste-mass"><span>CONTROLLED WASTE BODY</span><i class="drop d1"></i><i class="drop d2"></i><i class="drop d3"></i></div>
+            <div class="collection-pipe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="layer-stack">
+              <button type="button" class="visual-layer layer-drainage" data-layer="drainage"><span>Drainage</span></button>
+              <button type="button" class="visual-layer layer-protection" data-layer="protection"><span>Protection</span></button>
+              <button type="button" class="visual-layer layer-membrane active" data-layer="membrane"><span>Primary barrier</span></button>
+              <button type="button" class="visual-layer layer-gcl" data-layer="gcl"><span>Mineral barrier</span></button>
+              <button type="button" class="visual-layer layer-clay" data-layer="clay"><span>Secondary barrier</span></button>
+              <button type="button" class="visual-layer layer-subgrade" data-layer="subgrade"><span>Foundation</span></button>
+            </div>
+            <div class="groundwater"><span>GROUNDWATER</span><i></i><i></i><i></i></div>
+            <div class="pollution-plume" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <aside class="layer-inspector" aria-live="polite">
+          <div class="inspector-index">03</div><p class="inspector-kicker">Selected system layer</p>
+          <h3>HDPE geomembrane</h3>
+          <p class="inspector-purpose">Creates the principal low-permeability barrier against liquid and contaminant migration.</p>
+          <dl>
+            <div><dt>Typical system role</dt><dd class="inspector-spec">Smooth or textured HDPE liner</dd></div>
+            <div><dt>Engineering note</dt><dd class="inspector-note">Weldability, resin quality and seam inspection are as important as nominal thickness.</dd></div>
+          </dl>
+          <div class="layer-nav" aria-label="Select a system layer">
+            <button type="button" data-layer="drainage">01</button><button type="button" data-layer="protection">02</button><button type="button" class="active" data-layer="membrane">03</button><button type="button" data-layer="gcl">04</button><button type="button" data-layer="clay">05</button><button type="button" data-layer="subgrade">06</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section product-section" id="products">
+    <div class="wrap">
+      <div class="section-heading split-heading product-heading">
+        <div><p class="eyebrow"><span></span> Material portfolio</p><h2>One source.<br><em>Multiple system roles.</em></h2></div>
+        <p>From the primary barrier to protection, reinforcement and drainage, Xinda coordinates the materials that make the full assembly work.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card tone-emerald"><div class="product-code">GM</div><div><p>HDPE · LDPE · EVA · PVC</p><h3>Geomembranes</h3></div><span class="product-line"></span></article>
+        <article class="product-card tone-sand"><div class="product-code">GT</div><div><p>Needle-punched nonwoven systems</p><h3>Geotextiles</h3></div><span class="product-line"></span></article>
+        <article class="product-card tone-slate"><div class="product-code">CM</div><div><p>Geomembrane + geotextile</p><h3>Composite liners</h3></div><span class="product-line"></span></article>
+        <article class="product-card tone-clay"><div class="product-code">GC</div><div><p>Bentonite mineral barriers</p><h3>GCL</h3></div><span class="product-line"></span></article>
+        <article class="product-card tone-blue"><div class="product-code">GR</div><div><p>Geogrid · geocell · 3D mesh</p><h3>Reinforcement</h3></div><span class="product-line"></span></article>
+        <article class="product-card tone-graphite"><div class="product-code">DR</div><div><p>Geonet · drainage composites</p><h3>Drainage</h3></div><span class="product-line"></span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="capability-section" id="capability">
+    <div class="capability-image"><img src="assets/explorer-v2/water-containment.webp" alt="Large geomembrane-lined water containment project"><div class="image-label"><span>Built for reality</span><small>Manufacturing + project coordination</small></div></div>
+    <div class="capability-copy">
+      <p class="eyebrow light"><span></span> Why Xinda</p><h2>Materials are only the beginning.</h2>
+      <p class="capability-lead">Reliable containment comes from a chain of good decisions—from specification and production to roll planning, seams and field protection.</p>
+      <ul>
+        <li><span>01</span><div><strong>Manufacturing range</strong><p>Membranes, geotextiles, composite products and coordinated accessories.</p></div></li>
+        <li><span>02</span><div><strong>Flexible supply</strong><p>Standard inventory, made-to-order width and project roll planning.</p></div></li>
+        <li><span>03</span><div><strong>Construction support</strong><p>Factory pre-welding and field welding teams available by project.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section process-section">
+    <div class="wrap">
+      <div class="section-heading centered-heading"><p class="eyebrow"><span></span> From question to configuration</p><h2>A clearer path from site risk<br><em>to material delivery.</em></h2></div>
+      <div class="process-grid">
+        <article><span>01</span><h3>Define the risk</h3><p>Tell us the medium, base condition, geometry and service expectation.</p></article>
+        <article><span>02</span><h3>Configure the system</h3><p>We align material type, thickness, protection and joint strategy.</p></article>
+        <article><span>03</span><h3>Control production</h3><p>Stable lines, batch traceability and dimensional checks support consistency.</p></article>
+        <article><span>04</span><h3>Support delivery</h3><p>Roll planning, factory pre-welding and field welding options reduce uncertainty.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-grid" aria-hidden="true"></div>
+    <div class="wrap contact-inner">
+      <p class="eyebrow light"><span></span> Start with your project conditions</p>
+      <h2>Bring us the site.<br><em>We&apos;ll help map the system.</em></h2>
+      <p>Share the application, area, base condition and target service expectation. Our team will help you define the next useful question.</p>
+      <div class="contact-actions"><a class="button primary large" href="tel:+8619903778088">Call +86 199 0377 8088 <span>→</span></a><a class="button outline large" href="tel:+8613333625988">Call +86 133 3362 5988</a></div>
+      <div class="contact-foot"><div><strong>Nanyang Xinda Environmental Protection Technology Co., Ltd.</strong><span>Nanyang · Henan · China</span></div><div><strong>International Engineering Digital Showroom</strong><span>V2.0 · 2026</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="brand footer-brand" href="#top" aria-label="Back to top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-copy"><strong>XINDA</strong><small>ENGINEERING SYSTEMS</small></span></a>
+    <p>Containment systems for land, water and infrastructure.</p><a href="#top">Back to top ↑</a>
+  </footer>
+</main>
+<script src="explorer-v2.js"></script>
 </body>
 </html>
