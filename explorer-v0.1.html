@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xinda Engineering Explorer - Landfill System</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xinda Engineering Explorer V0.2 - Landfill System</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f5faf8;color:#18352d;margin:0;padding:20px}.box{background:white;border-radius:20px;padding:20px;margin-bottom:16px}h1{color:#0f5f4b}.layer{padding:14px;border:1px solid #dce9e4;border-radius:12px;margin:8px 0;cursor:pointer}.layer:hover{background:#eaf5f1}.detail{display:none;padding:14px;background:#eef7f3;border-radius:12px}
-</style></head>
+body{font-family:Arial,sans-serif;background:#f4f8f6;color:#18352d;margin:0;padding:18px}.box{background:white;border-radius:22px;padding:18px;margin-bottom:16px;box-shadow:0 4px 15px #0001}h1{color:#0f5f4b}.landfill{height:220px;background:linear-gradient(#dff3df 45%,#c9a77a 46%,#8b6b45 100%);border-radius:18px;position:relative;overflow:hidden}.waste{position:absolute;left:25%;right:25%;bottom:35px;height:70px;background:#555;border-radius:40px 40px 0 0}.water{position:absolute;top:20px;left:50%;color:#1672a8;font-size:28px;animation:rain 2s infinite}@keyframes rain{50%{transform:translateY(80px)}}.layer{padding:13px;border-radius:12px;margin:8px 0;background:#eef7f3;cursor:pointer;border:1px solid #d7e7e0}.layer:hover{background:#d9eee7}.detail{padding:15px;background:#fff7e8;border-radius:14px;display:none;line-height:1.6}.en{font-weight:bold;font-size:18px}.zh{color:#666}
+</style>
+</head>
 <body>
 <div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Explore how geosynthetic materials protect the environment.</p></div>
-<div class="box"><h2>Engineering Challenge</h2><p>Rainfall + waste decomposition → leachate → groundwater risk.</p><p>A landfill is not just a waste storage area. It is an engineered containment system.</p></div>
+<div class="box"><h2>Engineering Scene</h2><div class="landfill"><div class="water">💧</div><div class="waste"></div></div><p>Rainfall → Waste decomposition → Leachate → Groundwater risk</p><p class="zh">降雨 → 垃圾分解 → 渗滤液 → 地下水风险</p></div>
+<div class="box"><h2>Why Containment?</h2><p class="en">A landfill is not just a waste storage area. It is an engineered environmental protection system.</p><p class="zh">垃圾填埋场不是简单堆放垃圾，而是一套环境保护工程系统。</p></div>
 <div class="box"><h2>System Layers</h2>
-<div class="layer" onclick="show('HDPE Geomembrane: Primary barrier against liquid migration. Low permeability, chemical resistance, reliable welding.')">HDPE Geomembrane</div>
-<div class="layer" onclick="show('Protection Geotextile: Protects geomembrane from puncture and construction damage.')">Protection Geotextile</div>
-<div class="layer" onclick="show('GCL: Bentonite based mineral barrier used as part of composite containment systems.')">GCL</div>
+<div class="layer" onclick="show('HDPE Geomembrane\nFunction: Primary barrier against liquid migration.\nWhy needed: Prevent contaminated leachate from entering soil and groundwater.\nApplications: Landfill, Mining, Reservoir, Wastewater.')">HDPE Geomembrane</div>
+<div class="layer" onclick="show('Protection Geotextile\nFunction: Protect geomembrane from puncture and construction damage.\nKey point: Provides separation and protection.')">Protection Geotextile</div>
+<div class="layer" onclick="show('GCL\nFunction: Additional mineral barrier using bentonite.\nKey point: Low permeability composite containment layer.')">GCL</div>
+<div class="layer" onclick="show('Drainage Layer\nFunction: Collect and remove leachate efficiently.')">Drainage Layer</div>
 <div class="detail" id="d"></div></div>
-<div class="box"><h2>Xinda</h2><p>We don't just supply materials. We help build reliable environmental systems.</p></div>
+<div class="box"><h2>Engineering Logic</h2><p>Every layer has a purpose.</p><p class="zh">每一层都有它存在的意义。</p></div>
+<div class="box"><h2>Xinda</h2><p>We don't just supply materials. We help build reliable environmental systems.</p><p class="zh">我们不仅供应材料，我们帮助客户建立可靠的环保工程系统。</p></div>
 <script>function show(t){let d=document.getElementById('d');d.innerText=t;d.style.display='block'}</script>
-</body></html>
+</body>
+</html>
