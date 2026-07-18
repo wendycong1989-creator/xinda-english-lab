@@ -1,16 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xinda Engineering Explorer V1.1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xinda Engineering Explorer V1.2</title>
 <style>
-body{font-family:Arial,sans-serif;background:#071b22;color:#fff;margin:0;padding:0}.box{background:#102d36;margin:14px;border-radius:24px;padding:22px;box-shadow:0 8px 30px #0005}h1{font-size:32px;margin:0;color:#8de0b2}h2{color:#8de0b2}.hero{height:300px;background:linear-gradient(#7cc8ef 0 35%,#5da35b 35% 50%,#5b3b27 50%);border-radius:20px;position:relative;overflow:hidden}.earth{position:absolute;bottom:0;width:100%;height:50%;background:#5b3b27}.water{position:absolute;bottom:18px;left:20px;color:#8dd7ff}.risk{position:absolute;top:150px;left:45%;color:#ff8b8b;animation:risk 2s infinite alternate}@keyframes risk{to{transform:translateY(45px)}}.layer{padding:14px;margin:8px 0;background:#173f49;border-left:5px solid #8de0b2;border-radius:12px;cursor:pointer}.active{background:#276b55}.card{background:#163943;padding:15px;border-radius:15px}.tag{display:inline-block;background:#275e50;padding:5px 10px;border-radius:20px;margin:3px;font-size:13px}</style>
+body{font-family:Arial,sans-serif;background:#081b24;color:#eaf7f2;margin:0;padding:16px}.box{background:#102d38;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 8px 30px #0004}h1,h2,h3{color:#66d6a8}.hero{text-align:center;padding:35px}.btn{background:#2bb673;color:white;border:0;border-radius:30px;padding:14px 28px;font-size:18px}.section{display:flex;flex-direction:column;gap:8px}.layer{padding:14px;background:#183d4a;border-radius:10px;border-left:4px solid #477}.layer:hover,.active{background:#1f8060!important;border-left-color:#9affd1}.detail{background:#07151c;padding:15px;border-radius:12px}.risk{color:#ff9d8d;animation:risk 2s infinite alternate}@keyframes risk{to{transform:translateY(25px)}}.good{color:#80e8b4}.bad{color:#ff8c8c}
+</style>
 </head>
 <body>
-<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Digital Engineering Showcase</h2><p>Every project has a risk.<br>Every layer has a purpose.</p><p>每个工程都有风险，每一层都有意义。</p></div>
-<div class="box"><h2>Landfill Containment System</h2><div class="hero"><div class="earth"></div><div class="risk">Leachate ↓</div><div class="water">Groundwater</div></div><p>A modern landfill is not only a waste storage area. It is an engineered environmental protection system.</p></div>
-<div class="box"><h2>Explore The System</h2><div class="layer" onclick="show(this,'Cover Soil','Controls surface water infiltration.')">🌱 Cover Soil</div><div class="layer" onclick="show(this,'Drainage Layer','Collects and safely removes leachate.')">💧 Drainage Layer</div><div class="layer" onclick="show(this,'Protection Geotextile','Protects the geomembrane from damage.')">🛡 Protection Geotextile</div><div class="layer" onclick="show(this,'HDPE Geomembrane','The primary barrier against liquid migration. Low permeability and chemical resistance.')">⬛ HDPE Geomembrane</div><div class="layer" onclick="show(this,'GCL','Bentonite mineral barrier for additional containment.')">GCL</div><div class="layer" onclick="show(this,'Compacted Clay','Natural low permeability foundation barrier.')">Clay Layer</div><div id="detail" class="card">Select a layer to explore.</div></div>
-<div class="box"><h2>Engineering Principles</h2><span class="tag">Barrier</span><span class="tag">Protection</span><span class="tag">Drainage</span><span class="tag">Containment</span><p>A reliable environmental system is built layer by layer.</p></div>
+<div class="box hero"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Every project has a risk.<br>Every layer has a purpose.</p><p>每个工程都有风险，每一层都有意义。</p><button class="btn">Explore System</button></div>
+<div class="box"><h2>Engineering Risk</h2><p>Rainfall ↓ Waste decomposition ↓ <span class="risk">Leachate</span> ↓ Groundwater risk</p><p>Reliable containment systems prevent pollution migration.</p></div>
+<div class="box"><h2>Interactive Cross Section</h2><p>Click each layer to understand its engineering purpose.</p>
+<div class="section">
+<div class="layer" onclick="show(this,'Cover Soil','Reduces rainfall infiltration and protects the surface layer.')">🌱 Cover Soil</div>
+<div class="layer" onclick="show(this,'Drainage Layer','Collects and removes leachate safely.')">💧 Drainage Layer</div>
+<div class="layer" onclick="show(this,'Protection Geotextile','Protects the geomembrane from puncture and construction damage.')">🛡 Protection Geotextile</div>
+<div class="layer" onclick="show(this,'HDPE Geomembrane','Primary barrier against liquid migration. Low permeability and chemical resistance.')">⬛ HDPE Geomembrane</div>
+<div class="layer" onclick="show(this,'GCL','Bentonite mineral barrier providing additional containment.')">GCL</div>
+<div class="layer" onclick="show(this,'Compacted Clay','Natural low permeability barrier.')">Clay Layer</div>
+</div>
+<div id="detail" class="detail">Select a layer.</div></div>
+<div class="box"><h2>Without vs With Containment</h2><p class="bad">❌ Without System: Leachate → Soil → Groundwater</p><p class="good">✅ Xinda System: Barrier → Drainage → Environmental Protection</p></div>
 <div class="box"><h2>Why Xinda?</h2><p>We don't just supply materials.<br>We help build reliable environmental systems.</p><p>我们不仅供应材料，更帮助客户建立可靠的环保工程系统。</p></div>
 <script>function show(e,t,c){document.querySelectorAll('.layer').forEach(x=>x.classList.remove('active'));e.classList.add('active');document.getElementById('detail').innerHTML='<h3>'+t+'</h3><p>'+c+'</p>'}</script>
-</body></html>
+</body>
+</html>
