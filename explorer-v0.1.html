@@ -3,23 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xinda Engineering Explorer V0.2 - Landfill System</title>
+<title>Xinda Engineering Explorer V0.3</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f4f8f6;color:#18352d;margin:0;padding:18px}.box{background:white;border-radius:22px;padding:18px;margin-bottom:16px;box-shadow:0 4px 15px #0001}h1{color:#0f5f4b}.landfill{height:220px;background:linear-gradient(#dff3df 45%,#c9a77a 46%,#8b6b45 100%);border-radius:18px;position:relative;overflow:hidden}.waste{position:absolute;left:25%;right:25%;bottom:35px;height:70px;background:#555;border-radius:40px 40px 0 0}.water{position:absolute;top:20px;left:50%;color:#1672a8;font-size:28px;animation:rain 2s infinite}@keyframes rain{50%{transform:translateY(80px)}}.layer{padding:13px;border-radius:12px;margin:8px 0;background:#eef7f3;cursor:pointer;border:1px solid #d7e7e0}.layer:hover{background:#d9eee7}.detail{padding:15px;background:#fff7e8;border-radius:14px;display:none;line-height:1.6}.en{font-weight:bold;font-size:18px}.zh{color:#666}
+body{font-family:Arial,sans-serif;background:#eef6f2;color:#17352c;margin:0;padding:18px}.box{background:#fff;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 4px 18px #0001}h1,h2{color:#0b614d}.scene{height:220px;background:linear-gradient(#bfe7ff 0 45%,#8bcf7b 45% 65%,#8b5a3c 65%);border-radius:18px;position:relative;overflow:hidden}.rain{position:absolute;top:0;left:50%;animation:fall 2s infinite;color:#2878c8}@keyframes fall{from{transform:translateY(0)}to{transform:translateY(180px)}}.layer{padding:12px;margin:7px 0;border-radius:10px;background:#eaf5f1;cursor:pointer}.layer.active{background:#b5e5d2;border:2px solid #0b614d}.detail{margin-top:15px;padding:15px;background:#f1faf6;border-radius:12px}.flow{font-size:18px;line-height:2;text-align:center}
 </style>
 </head>
 <body>
-<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Explore how geosynthetic materials protect the environment.</p></div>
-<div class="box"><h2>Engineering Scene</h2><div class="landfill"><div class="water">💧</div><div class="waste"></div></div><p>Rainfall → Waste decomposition → Leachate → Groundwater risk</p><p class="zh">降雨 → 垃圾分解 → 渗滤液 → 地下水风险</p></div>
-<div class="box"><h2>Why Containment?</h2><p class="en">A landfill is not just a waste storage area. It is an engineered environmental protection system.</p><p class="zh">垃圾填埋场不是简单堆放垃圾，而是一套环境保护工程系统。</p></div>
-<div class="box"><h2>System Layers</h2>
-<div class="layer" onclick="show('HDPE Geomembrane\nFunction: Primary barrier against liquid migration.\nWhy needed: Prevent contaminated leachate from entering soil and groundwater.\nApplications: Landfill, Mining, Reservoir, Wastewater.')">HDPE Geomembrane</div>
-<div class="layer" onclick="show('Protection Geotextile\nFunction: Protect geomembrane from puncture and construction damage.\nKey point: Provides separation and protection.')">Protection Geotextile</div>
-<div class="layer" onclick="show('GCL\nFunction: Additional mineral barrier using bentonite.\nKey point: Low permeability composite containment layer.')">GCL</div>
-<div class="layer" onclick="show('Drainage Layer\nFunction: Collect and remove leachate efficiently.')">Drainage Layer</div>
-<div class="detail" id="d"></div></div>
-<div class="box"><h2>Engineering Logic</h2><p>Every layer has a purpose.</p><p class="zh">每一层都有它存在的意义。</p></div>
-<div class="box"><h2>Xinda</h2><p>We don't just supply materials. We help build reliable environmental systems.</p><p class="zh">我们不仅供应材料，我们帮助客户建立可靠的环保工程系统。</p></div>
-<script>function show(t){let d=document.getElementById('d');d.innerText=t;d.style.display='block'}</script>
-</body>
-</html>
+<div class="box"><h1>Xinda Engineering Explorer</h1><h2>Landfill Containment System</h2><p>Explore how engineering systems protect soil and groundwater.</p></div>
+<div class="box"><h2>1. Engineering Challenge</h2><div class="scene"><div class="rain">💧</div></div><div class="flow">Rainfall ↓<br>Waste Decomposition ↓<br>Leachate ↓<br>Groundwater Risk</div><p>A landfill is not just a waste storage area. It is an engineered environmental protection system.</p></div>
+<div class="box"><h2>2. Explore The System Layers</h2><p>Every layer has a purpose.</p><div onclick="show(this,'Cover Soil','Reduces rainfall infiltration and provides surface protection.')" class="layer">Cover Soil</div><div onclick="show(this,'Drainage Layer','Collects and removes leachate safely.')" class="layer">Drainage Layer</div><div onclick="show(this,'Protection Geotextile','Protects geomembrane from puncture and construction damage.')" class="layer">Protection Geotextile</div><div onclick="show(this,'HDPE Geomembrane','Primary barrier against liquid migration. Low permeability, chemical resistance, reliable welding.')" class="layer">HDPE Geomembrane</div><div onclick="show(this,'GCL','Bentonite based mineral barrier providing additional containment.')" class="layer">GCL</div><div onclick="show(this,'Compacted Clay','Natural low permeability barrier layer.')" class="layer">Compacted Clay</div><div id="detail" class="detail">Click a layer to explore.</div></div>
+<div class="box"><h2>3. Why Layer By Layer?</h2><p>Reliable containment systems are built through multiple protection mechanisms.</p><p>Good materials need good design and good installation.</p></div>
+<div class="box"><h2>Xinda</h2><p>We don't just supply materials.<br>We help build reliable environmental systems.</p></div>
+<script>function show(el,title,text){document.querySelectorAll('.layer').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('detail').innerHTML='<h3>'+title+'</h3><p>'+text+'</p>';}</script>
+</body></html>
